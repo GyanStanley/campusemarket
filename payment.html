@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-1">
+      <h1>Select Payment Method</h1>
+      <div class="payment-options">
+        <div class="payment-option">
+          <input
+            type="radio"
+            id="vodafoneCash"
+            name="paymentMethod"
+            value="vodafoneCash"
+          />
+          <label for="vodafoneCash">Vodafone Cash</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" id="mtn" name="paymentMethod" value="mtn" />
+          <label for="mtn">MTN</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" id="paypal" name="paymentMethod" value="paypal" />
+          <label for="paypal">PayPal</label>
+        </div>
+        <div class="payment-option">
+          <input type="radio" id="visa" name="paymentMethod" value="visa" />
+          <label for="visa">Visa</label>
+        </div>
+        <div class="payment-option">
+          <input
+            type="radio"
+            id="creditCard"
+            name="paymentMethod"
+            value="creditCard"
+          />
+          <label for="creditCard">Credit Card</label>
+        </div>
+      </div>
+      <button id="paymentButton">Proceed to Payment</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document
+        .getElementById("paymentButton")
+        .addEventListener("click", function () {
+          var paymentMethod = document.querySelector(
+            'input[name="paymentMethod"]:checked'
+          );
+
+          if (paymentMethod) {
+            alert("Payment successful!");
+            document.getElementById("paymentButton").classList.add("complete");
+            setTimeout(function () {
+              window.location.href = "home.html";
+            }, 2000); // Redirect to home page after 2 seconds
+          } else {
+            alert("Please select a payment method.");
+          }
+        });
+    </script>
+  </body>
+</html>
